@@ -1,8 +1,10 @@
 class WorkoutsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_workout, only:[:show, :edit, :update, :destroy]
+
   def index
     @workouts = Workout.all.order("created_at DESC")
+    #@playlist = RSpotify::Playlist.find('tupsmusic', '3hTUZPXKbiyLDCVh1ixJwU')
   end
 
   def new
