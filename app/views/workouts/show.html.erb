@@ -1,13 +1,19 @@
-<h1>Workouts#show</h1>
-<p>Find me in app/views/workouts/show.html.erb</p>
-
-<h2>Workout: <%= @workout.workout %> </h2>
-  <br>
-  Date : <%= @workout.date.strftime('%Y, %B %d') %> <br>
-  Mood: <%= @workout.mood %> <br>
-  Length: <%= @workout.length %> <br>
-  Time: <%= @workout.time %> <br>
-  <br>
-<%= link_to 'Home', root_path  %> |
-<%= link_to 'Edit', edit_workout_path %> |
-<%= link_to 'Delete', workout_path(@workout), method: :delete, data: {confirm: 'Are you sure?'} %>
+<div class="container-logo">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>  <%= image_tag 'body-logo.png', width: 140, class: "animated rollIn" %> iFEW</h2>
+    </div>
+    <div class="col-md-8">
+      <h2>Workout: <%= @workout.workout %> </h2>
+        <br>
+        Date : <%= @workout.date.strftime('%Y, %B %d') %> <br>
+        Mood: <%= @workout.mood %> <br>
+        Length: <%= @workout.length %> <br>
+        Time: <%= @workout.time %> <br>
+        <br>
+      <%= link_to 'Home', root_path  %> |
+      <%= link_to 'Edit', edit_workout_path %> |
+      <%= link_to 'Delete', workout_path(@workout), method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+</div>
