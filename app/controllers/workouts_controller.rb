@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_workout, only:[:show, :edit, :update, :destroy]
-
   def index
     @workouts = Workout.all.order("created_at DESC")
   end
@@ -19,7 +19,6 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
-    @workout = Workout.new(workout_params)
   end
 
   def show
