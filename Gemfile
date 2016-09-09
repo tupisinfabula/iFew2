@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem 'devise'
+gem "animate-rails"
 #gem 'rspotify'
 gem 'omniauth'
 gem 'omniauth-spotify'
