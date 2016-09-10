@@ -39,6 +39,20 @@ class WorkoutsController < ApplicationController
     redirect_to root_path
   end
 
+  def history
+    @history_x = []
+    @history_y = []
+    @workouts = Workout.all
+    @workouts.each do |workout|
+      @history_x << workout.length
+      @history_y << workout.time
+    end
+
+    respond_to do |format|
+      format.json { render json: {'labels'=> @history_x, 'values' => @history_y} }
+    end
+  end
+
   private
 
   def workout_params

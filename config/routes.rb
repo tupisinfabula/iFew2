@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :workouts
 
+  post '/history', to: 'workouts#history'
+
   root 'workouts#index'
   #get '/auth/spotify/callback', to: 'users#spotify'
 end
