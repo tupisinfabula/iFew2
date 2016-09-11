@@ -15,6 +15,7 @@ $(function() {
             {label:'Runpgiun', data: responseData.values, backgroundColor: "rgba(153,200,51,0.4)"}]);
       console.log(responseData.labels);
       console.log(responseData.values);
+      //location.reload();
     }).fail(function(){
       console.log('Fail');
     }).always(function(){

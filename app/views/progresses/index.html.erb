@@ -1,0 +1,22 @@
+<h1>My progresses</h1>
+
+Start weight: <%= current_user.weight %> <br>
+<br>
+<% @progresses.each do |progress| %>
+  Weight: <%= progress.weight %> |   Date: <%= progress.date.strftime('%Y, %B %d') %> <br>
+  <%= link_to 'Edit',  edit_progress_path(progress), data: { id: progress.id } , class: 'js-edit' %> |
+  <%= link_to 'Delete', progress_path(progress), method: :delete, data: {confirm: 'Are you sure?'} %>
+  <br>
+<% end  %>
+
+<div id="add-progress">
+  <button id="new-progress">New Progress</button>
+</div>
+
+<%= simple_form_for @progress, html: {class:'form-horizontal'} do |f| %>
+  <%= f.input :date %>
+  <%= f.input :weight, input_html: { class: 'form-control'} %>
+  <br>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+  | <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+<% end %>

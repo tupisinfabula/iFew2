@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910080652) do
+ActiveRecord::Schema.define(version: 20160911181156) do
 
   create_table "models", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20160910080652) do
 
   add_index "models", ["email"], name: "index_models_on_email", unique: true
   add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+
+  create_table "progresses", force: :cascade do |t|
+    t.float    "weight"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "todo_items", force: :cascade do |t|
     t.string   "content"
@@ -63,6 +70,8 @@ ActiveRecord::Schema.define(version: 20160910080652) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.float    "weight_goal"
+    t.float    "weight"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
