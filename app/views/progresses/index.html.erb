@@ -9,14 +9,16 @@ Start weight: <%= current_user.weight %> <br>
   <br>
 <% end  %>
 
-<div id="add-progress">
+<!-- <div id="add-progress">
   <button id="new-progress">New Progress</button>
-</div>
+</div> -->
 
 <%= simple_form_for @progress, html: {class:'form-horizontal'} do |f| %>
+  <div class="progress_id">id: </div>
   <%= f.input :date %>
   <%= f.input :weight, input_html: { class: 'form-control'} %>
   <br>
-  <%= f.button :submit, class: 'btn btn-primary' %>
+  <%= f.submit 'Edit Progress', class: 'btn btn-warning' %>
+  <%= f.submit 'New Progress', class: 'btn btn-primary' %>
   | <%= link_to 'Back', root_path, class: 'btn btn-default' %>
 <% end %>

@@ -1,8 +1,20 @@
 class ProgressesController < ApplicationController
 
   def index
-    @progress = Progress.new
     @progresses = Progress.all
+    if params[:commit] == 'Edit'
+      # progress_id = @progress.id
+      @progress = Progress.find(params[:id])
+      if @progress.update_attributes(progress_params)
+        redirect_to progresses_path
+      else
+        render @progress
+      end
+      update
+
+    else
+      @progress = Progress.new
+    end
   end
 
   def show
@@ -25,7 +37,7 @@ class ProgressesController < ApplicationController
   def edit
     @progress = Progress.find(params[:id])
     respond_to do |format|
-      format.json { render json: {'weight'=> @progress.weight, 'year' => @progress.date.year, 'month' => @progress.date.month, 'day' => @progress.date.day } }
+      format.json { render json: { 'id' => @progress.id, 'weight'=> @progress.weight, 'year' => @progress.date.year, 'month' => @progress.date.month, 'day' => @progress.date.day } }
     end
   end
 
@@ -49,6 +61,14 @@ class ProgressesController < ApplicationController
 
   def progress_params
     params.require(:progress).permit(:weight, :date);
+  end
+
+  def new_progress
+    params[:commit] == 'New Progress'
+  end
+
+  def edit_progress
+    params[:commit] == 'Edit Progress'
   end
 
 end
