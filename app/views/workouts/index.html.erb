@@ -2,17 +2,6 @@
   <div class="row">
     <div class="col-md-4">
       <h2>  <%= image_tag 'fit-logo.png', width: 140, id:"img-animation" %> iFEW</h2>
-    </div>
-    <div class="col-md-8">
-      <h1 id="welcome">Hi <%= current_user.name %>!</h1>
-
-      <br> <h3>Your workout list:</h3>
-
-      <% @workouts.each do |workout| %>
-        <%= link_to workout.workout, workout %>
-        <%= workout.date.strftime('%Y, %B %d, %A') %> <br>
-      <% end %>
-
       <br>
       <%= link_to "Edit profile", edit_user_registration_path %> |
       <% if user_signed_in? %>
@@ -21,11 +10,71 @@
         <%= link_to 'Login', new_user_session_path %>
       <% end %>
     </div>
-  </div>
+    <div class="col-md-8">
+      <h1 id="welcome">Hi <%= current_user.name %>!</h1>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="table-responsive">
+            <table class="table table-responsive table-hover ">
+              <br> <h3>Your Workout list:</h3>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Workout</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <% @count_workout = 0 %>
+              <% @workouts.each do |workout| %>
+                <tbody>
+                  <tr>
+                    <% @count_workout += 1 %>
+                    <td><%= @count_workout %></td>
+                    <td><%= link_to workout.workout, workout %> </td>
+                    <td><%= workout.date.strftime('%Y, %B %d, %A') %> <br></td>
+                  </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="table-responsive">
+            <table class="table table-responsive table-hover ">
+              <br> <h3>Your ToDo list:</h3>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>TODO List</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <% @count_todo = 0 %>
+              <% @todo_lists.each do |todo| %>
+                <tbody>
+                  <tr>
+                    <% @count_todo += 1 %>
+                    <td><%= @count_todo %></td>
+                    <td><%= link_to todo.title, todo %> </td>
+                    <td><%= todo.description %> <br></td>
+                  </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <br>
+    </div>
+
+    </div>
   <div class="row">
     <div class="col-md-12">
     <canvas id="myChart"></canvas>
-    <canvas id="myChart2"></canvas>
+    <!-- <canvas id="myChart2"></canvas> -->
     </div>
   </div>
 </div>

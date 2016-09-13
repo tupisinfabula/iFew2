@@ -4,6 +4,7 @@ class WorkoutsController < ApplicationController
 
   def index
     @workouts = Workout.all.order("created_at DESC")
+    @todo_lists = TodoList.all 
     #@playlist = RSpotify::Playlist.find('tupsmusic', '3hTUZPXKbiyLDCVh1ixJwU')
   end
 

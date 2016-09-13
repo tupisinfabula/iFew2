@@ -1,20 +1,33 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @todo_list.title %>
-</p>
+<div class="row">
+  <div class="col-md-4">
 
-<p>
-  <strong>Description:</strong>
-  <%= @todo_list.description %>
-</p>
+  </div>
+  <div class="col-md-8">
+    <div class="table-responsive">
+      <table class="table table-responsive table-hover">
 
-<div id="todo_items_wrapper">
-  <%= render @todo_list.todo_items %>
-  <div id="form">
-    <%= render 'todo_items/form' %>
+        <h3>ToDo List: <%= @todo_list.title %></h3>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @todo_list.description %>
+      </p>
+      <thead>
+        <th></th>
+        <th>Item</th>
+        <th></th>
+      </thead>
+      <div id="todo_items_wrapper">
+        <%= render @todo_list.todo_items %>
+        <div id="form">
+          <%= render 'todo_items/form' %>
+        </div>
+      </div>
+        <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+        <%= link_to 'Back', todo_lists_path %>
+        <br> <br>
+      </table>
+    </div>
   </div>
 </div>
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>
