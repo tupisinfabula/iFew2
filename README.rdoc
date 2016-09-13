@@ -1,10 +1,10 @@
 == iFEW - Fitness Eat Work
 
-The goal of this application is to keep track of your
+The goal of this application is to keep track of your:
 * Workout,
 
 * Nutrition plan
 
-* Work with a todo list section.
+* Work (with a todo list section).
 
 <tt>Feel free to give me your feedback! - email:seila.tupone@gmail.com</tt>.
