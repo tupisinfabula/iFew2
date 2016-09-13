@@ -7,4 +7,8 @@ The goal of this application is to keep track of your:
 
 * Work (with a todo list section).
 
+== Heroku
+
+Deployed applications to Heroku: https://ifew.herokuapp.com/
+
 <tt>Feel free to give me your feedback! - email:seila.tupone@gmail.com</tt>.
