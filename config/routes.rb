@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   resources :todo_lists do
-    resources :todo_items
+    resources :todo_items do
+      member do
+        # to mark the list as complete
+        patch :complete
+      end
+    end
   end
   devise_for :users
   resources :workouts

@@ -4,14 +4,8 @@ class ProgressesController < ApplicationController
     @progresses = Progress.all
     if params[:commit] == 'Edit'
       # progress_id = @progress.id
-      @progress = Progress.find(params[:id])
-      if @progress.update_attributes(progress_params)
-        redirect_to progresses_path
-      else
-        render @progress
-      end
-      update
-
+      puts "************"
+      render :edit
     else
       @progress = Progress.new
     end
@@ -22,10 +16,12 @@ class ProgressesController < ApplicationController
   end
 
   def new
+    puts '**************** - NEW'
     @progress = Progress.new
   end
 
   def create
+    puts '**************** - CREATE'
     @progress = Progress.new(progress_params)
     if @progress.save
       redirect_to progresses_path
@@ -39,9 +35,12 @@ class ProgressesController < ApplicationController
     respond_to do |format|
       format.json { render json: { 'id' => @progress.id, 'weight'=> @progress.weight, 'year' => @progress.date.year, 'month' => @progress.date.month, 'day' => @progress.date.day } }
     end
+    #update
+    puts '**************** - EDIT'
   end
 
   def update
+    puts '**************** - UPDATE'
     @progress = Progress.find(params[:id])
     if @progress.update_attributes(progress_params)
       redirect_to progresses_path
