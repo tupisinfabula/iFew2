@@ -13,20 +13,28 @@
         </tr>
       </thead>
       <% @count_todo = 0 %>
-      <% @todo_lists.each do |todo| %>
-        <tbody>
-          <tr>
-            <% @count_todo += 1 %>
-            <td><%= @count_todo %></td>
-            <td><%= link_to todo.title, todo %> </td>
-            <td><%= todo.description %> <br></td>
-            <td><%= link_to 'Edit', edit_todo_list_path(todo) %></td>
-            <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        </tbody>
+      <%= puts 'Hello' %>
+      <% if @todo_lists == nil %>
+        <p>You are lucky! Nothing to do!</p>
+      <% else %>
+        <% @todo_lists.each do |todo| %>
+          <tbody>
+            <tr>
+              <% @count_todo += 1 %>
+              <td><%= @count_todo %></td>
+              <td><%= link_to todo.title, todo %> </td>
+              <td><%= todo.description %> <br></td>
+              <td><%= link_to 'Edit', edit_todo_list_path(todo) %></td>
+              <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          </tbody>
+        <% end %>
       <% end %>
     </table>
   </div>
 <br>
 
-<%= link_to 'New Todo list', new_todo_list_path, class: ('btn btn-default ') %>
+<%= link_to 'New Todo list', new_todo_list_path, id: 'new-todo-link', class: ('btn btn-default ') %>
+<div class="new-todo-section">
+
+</div>

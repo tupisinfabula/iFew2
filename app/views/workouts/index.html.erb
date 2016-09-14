@@ -12,9 +12,14 @@
     </div>
     <div class="col-md-8">
       <h1 id="welcome">Hi <%= current_user.name %>!</h1>
+      <br>
+      <h4>Today is: <%= Time.now.strftime('%B %d, %Y') %> -- <%= @random_list.sample %></h4>
+      <br>
       <div class="row">
         <div class="col-md-8">
-          <div class="table-responsive">
+          <%= link_to "New Workout", root_path, id: 'new-workout', class: 'btn btn-primary' %>
+          <%= link_to "Show Last Workout", root_path, id:'show-last-workout', class: 'btn btn-default' %>
+          <div class="table-responsive-workout">
             <table class="table table-responsive table-hover ">
               <br> <h3>Your Workout list:</h3>
               <thead>
@@ -41,7 +46,7 @@
       </div>
       <div class="row">
         <div class="col-md-8">
-          <div class="table-responsive">
+          <div class="table-responsive-todo">
             <table class="table table-responsive table-hover ">
               <br> <h3>Your ToDo list:</h3>
               <thead>

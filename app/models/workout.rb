@@ -1,5 +1,10 @@
 class Workout < ActiveRecord::Base
 
-  #playlist = RSpotify::Playlist.find('tupsmusic', '3hTUZPXKbiyLDCVh1ixJwU')
+    validates :date, presence: true
+    validates :workout, presence: true
+    validates :mood, presence: true
+    validates :length, presence: true
+    validates :time, presence: true
+  #playlist = RSpotify::Playlist.find('idclient', 'id')
 
 end

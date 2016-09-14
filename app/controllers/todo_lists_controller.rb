@@ -15,6 +15,11 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/new
   def new
     @todo_list = TodoList.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /todo_lists/1/edit
