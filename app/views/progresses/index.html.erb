@@ -2,22 +2,27 @@
   <div class="row">
     <div class="col-md-4">
       <h1>My progresses</h1>
-
-      Start weight: <%= current_user.weight %> <br>
       <br>
-      <% @progresses.each do |progress| %>
-        Weight: <%= progress.weight %> |   Date: <%= progress.date.strftime('%Y, %B %d') %> <br>
-        <%= link_to 'Edit',  edit_progress_path(progress), data: { id: progress.id } , class: 'js-edit' %> |
-        <%= link_to 'Delete', progress_path(progress), method: :delete, data: {confirm: 'Are you sure?'} %>
-        <br>
-      <% end  %>
+      <h4 class="start-weight glyphicon glyphicon-flag aria-hidden='true'"> Start weight: <%= current_user.weight %> Kg </h4>
+      <br> <br>
+      <table class="table table-hover">
+        <tr>
+        <% @progresses.each do |progress| %>
+          <td><span class="glyphicon glyphicon-chevron-right"> Weight: <%= progress.weight %> |   Date: <%= progress.date.strftime('%Y, %B %d') %></span></td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to 'Edit',  edit_progress_path(progress), data: { id: progress.id } , class: 'js-edit' %> |
+            <%= link_to 'Delete', progress_path(progress), method: :delete, data: {confirm: 'Are you sure?'} %>
+          </td>
+        </tr>
 
-      <!-- <div id="add-progress">
-        <button id="new-progress">New Progress</button>
-      </div> -->
+        <% end  %>
+      </table>
+
 
       <%= simple_form_for @progress, html: {class:'form-horizontal'} do |f| %>
-        <div class="progress_id">id: </div>
+        <div class="progress_id"> </div>
         <%= f.input :date %>
         <%= f.input :weight, input_html: { class: 'form-control'} %>
         <br>
@@ -30,8 +35,9 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-12">
-        <canvas id="myChart"></canvas>
-        <!-- <canvas id="myChart2"></canvas> -->
+          <h1>Chart</h1>
+          <canvas id="myChart"></canvas>
+          <!-- <canvas id="myChart2"></canvas> -->
         </div>
       </div>
     </div>
