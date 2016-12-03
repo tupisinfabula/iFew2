@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :weight, :weight_goal])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :weight, :weight_goal])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :password, :password_confirmation, :remember_me, :weight, :weight_goal, :avatar, :avatar_cache])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :password, :password_confirmation, :avatar, :avatar_cache, :weight, :weight_goal])
   end
-
 end

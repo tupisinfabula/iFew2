@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :progresses
+  has_many :workouts
+  # for avatar image
+  mount_uploader :avatar, AvatarUploader
 end

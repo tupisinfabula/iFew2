@@ -1,7 +1,6 @@
 require 'faker'
 # create fake user to populate db
 FactoryGirl.define do
-  email = 
   factory :user, class: User do
     name Faker::Name.name
     sequence(:email) { |n| "#{SecureRandom.hex}user#{n}@gmail.com" }
@@ -18,5 +17,6 @@ FactoryGirl.define do
     password 'test12345'
     weight 88
     weight_goal 82
+    avatar 'avatar1.png'
   end
 end
