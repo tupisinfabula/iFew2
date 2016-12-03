@@ -1,4 +1,4 @@
-# workout model
+# Workout model
 class Workout < ActiveRecord::Base
   belongs_to :user
   # validates

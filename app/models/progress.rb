@@ -1,3 +1,4 @@
+# Progress model
 class Progress < ActiveRecord::Base
   belongs_to :user
 
@@ -6,9 +7,6 @@ class Progress < ActiveRecord::Base
   validate  :past_date
 
   def past_date
-    if date > Time.now
-      errors.add(:past_date, "can't be in the future")
-    end
+    errors.add(:past_date, "can't be in the future") if date > Time.now
   end
-
 end

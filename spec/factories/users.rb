@@ -17,6 +17,6 @@ FactoryGirl.define do
     password 'test12345'
     weight 88
     weight_goal 82
-    avatar 'avatar1.png'
+    avatar File.open("#{Rails.root}/app/assets/images/avatar/avatar1.png")
   end
 end
