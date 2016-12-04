@@ -1,23 +1,23 @@
 class WorkoutsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_workout, only:[:show, :edit, :update, :destroy]
-
+  before_action :find_workout, only: [:show, :edit, :update, :destroy]
 
   def index
-    @workouts = Workout.all.order("created_at DESC")
+    @workouts = Workout.all.order('created_at DESC')
     @todo_lists = TodoList.all
-    @random_list = ["Be healthy!", "Keep Going!", "Work hard!", "Never give up!"]
+    @random_list = ['Be healthy!', 'Keep Going!', 'Work hard!', 'Never give up!']
     @workout = Workout.new
 
     respond_to do |format|
       format.html
-      format.js 
+      format.js
     end
-    #@playlist = RSpotify::Playlist.find('tupsmusic', '3hTUZPXKbiyLDCVh1ixJwU')
   end
 
   def new
     @workout = Workout.new
+    @month_workouts = Workout.all.group_by { |m| m.date.month }
+    @workouts = Workout.all
   end
 
   def create
@@ -58,7 +58,7 @@ class WorkoutsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render json: {'labels'=> @history_x, 'values' => @history_y} }
+      format.json { render json: {'labels' => @history_x, 'values' => @history_y} }
     end
   end
 
@@ -71,5 +71,4 @@ class WorkoutsController < ApplicationController
   def find_workout
     @workout = Workout.find(params[:id])
   end
-
 end

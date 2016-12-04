@@ -1,12 +1,12 @@
 <%= simple_form_for @workout, html: { class:'form-horizontal' } do |f| %>
     <%= f.input :date %>
-  <div class="control">
-    <%= f.input :workout %>
-    <%= f.input :mood  %>
-    <%= f.input :length  %>
-    <%= f.input :time %>
-    <br>
-    <%= f.button :submit, class: 'btn btn-primary' %> |
-    <%= link_to 'Back', root_path, class: 'btn btn-default' %>
-  </div>
+    <div class='control'>
+      <%= f.input :workout %>
+      <%= f.input :mood  %>
+      <%= f.input :length, hint: 'Value in KM'  %>
+      <%= f.input :time, hint: 'Value in minutes'%>
+      <br>
+      <%= f.button :submit, class: 'btn btn-primary' %> |
+      <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+    </div>
 <% end %>

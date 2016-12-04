@@ -8,8 +8,8 @@ $(function() {
       console.log(responseData);
 
       drawChart('myChart', responseData.labels,
-        [{label:'Run', data: responseData.values, backgroundColor: "rgba(153,255,51,0.4)"},
-         {label:'Run2', data: responseData.values, backgroundColor: "rgba(153,200,51,0.4)"}]);
+        [{label:'length', data: responseData.values, backgroundColor: "rgba(153,255,51,0.4)"},
+        {label:'time', data: responseData.values, backgroundColor: "rgba(153,200,51,0.4)"}]);
          drawChart('myChart2', responseData.labels,
            [{label:'Run2', data: responseData.values, backgroundColor: "rgba(153,255,51,0.4)"},
             {label:'Run2', data: responseData.values, backgroundColor: "rgba(153,200,51,0.4)"}]);

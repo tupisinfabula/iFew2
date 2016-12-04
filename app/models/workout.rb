@@ -7,4 +7,21 @@ class Workout < ActiveRecord::Base
   validates :mood, presence: true
   validates :length, presence: true
   validates :time, presence: true
+
+  def converter_to_miles(number)
+    number * 0.62137119
+  end
+
+  def converter_to_km(number)
+    number / 0.62137119
+  end
+
+  def current_month
+    Date.today.month
+  end
+
+  def group_by_month
+    Workout.where(date: :month)
+  end
 end
+

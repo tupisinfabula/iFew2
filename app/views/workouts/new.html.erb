@@ -1,12 +1,24 @@
 <div class="row">
   <div class="col-md-4">
-    <h2>  <%= image_tag 'awesome-logo.png', width: 140, class: "animated zoomInUp" %> iFEW</h2>
+    <h2><%= image_tag 'awesome-logo.png', width: 140, class: 'animated zoomInUp' %> iFEW </h2>
+  </div>
+  <div class="col-md-8">
+      <h2>All Workouts</h2>
+      <% @month_workouts.each_pair do |month, workouts| %>
+        <h3 class="white"><%= Date::MONTHNAMES[month] %></h3> 
+        <% workouts.each do |workout| %>
+        <span class="glyphicon glyphicon-ok">  <%= workout.date %> <br>
+        <%end%>
+      <%end%>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
   </div>
   <div class="col-md-8">
     <h2>New Workout - <%= current_user.name %></h2>
-
     <%= render 'form' %>
-
-
   </div>
 </div>
+
+
