@@ -19,9 +19,5 @@ class Workout < ActiveRecord::Base
   def current_month
     Date.today.month
   end
-
-  def group_by_month
-    Workout.where(date: :month)
-  end
 end
 

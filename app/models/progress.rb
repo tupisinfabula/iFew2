@@ -7,6 +7,6 @@ class Progress < ActiveRecord::Base
   validate  :past_date
 
   def past_date
-    errors.add(:past_date, "can't be in the future") if date > Time.now
+    errors.add(:past_date, "can't be in the future") if date > Date.today
   end
 end

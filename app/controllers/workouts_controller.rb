@@ -17,7 +17,6 @@ class WorkoutsController < ApplicationController
   def new
     @workout = Workout.new
     @month_workouts = Workout.all.group_by { |m| m.date.month }
-    @workouts = Workout.all
   end
 
   def create
