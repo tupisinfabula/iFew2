@@ -13,7 +13,8 @@
     <div class="col-md-8">
       <h1 id="welcome"><%= image_tag (current_user.avatar.url) %> Hi <%= current_user.name %>! </h1>
       <br>
-      <h4>Today is: <%= Time.now.strftime('%B %d, %Y') %> -- <%= @random_list.sample %></h4>
+      <h4>Today is: <%= Time.now.strftime('%B %d, %Y') %> -- 
+          <%= @random_list.sample %></h4>
       <br>
       <div class="row">
         <div class="col-md-8">
@@ -30,7 +31,7 @@
                 </tr>
               </thead>
               <% @count_workout = 0 %>
-              <% @workouts.each do |workout| %>
+              <% @workouts.last(5).each do |workout| %>
                 <tbody>
                   <tr>
                     <% @count_workout += 1 %>

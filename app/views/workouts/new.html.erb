@@ -7,7 +7,8 @@
       <% @month_workouts.each_pair do |month, workouts| %>
         <h3 class="white"><%= Date::MONTHNAMES[month] %></h3> 
         <% workouts.each do |workout| %>
-        <span class="glyphicon glyphicon-ok">  <%= workout.date %> <br>
+          <span class="glyphicon glyphicon-ok">
+          <%= workout.date %> <br>
         <%end%>
       <%end%>
   </div>
