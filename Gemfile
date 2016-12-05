@@ -19,7 +19,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'faker'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'jquery-turbolinks'
+# Both To generate pdfs
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -27,6 +29,7 @@ gem 'jquery-turbolinks'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

@@ -32,6 +32,18 @@ class WorkoutsController < ApplicationController
   end
 
   def show
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf do
+    #     render pdf: 'report_workout',
+    #            template: 'workout/show',
+    #            file: "#{Rails.root}/views/workouts/show.erb",
+    #            layout: 'pdf',
+    #            wkhtmltopdf: WickedPdf.config[:exe_path],
+    #            show_as_html: params[:debug],
+    #            locals: { workout: @workout }
+    #   end
+    # end
   end
 
   def update

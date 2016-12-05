@@ -1,4 +1,5 @@
-$(function() {
+var ready;
+ready = function() {
     $.ajax({
       url: "/history",
       method: "POST",
@@ -36,5 +37,7 @@ $(function() {
       }
       });
     }
+};
 
-  })
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
