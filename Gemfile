@@ -1,30 +1,39 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'simple_form'
-gem 'devise'
-gem 'animate-rails'
+# FRAMEWORKS
+#
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.6'
+
 # gem 'rspotify'
 gem 'omniauth'
 gem 'omniauth-spotify'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
-gem 'factory_girl_rails'
+
+
+# FILE MANAGEMENT
+#
+# to upload images
+gem 'carrierwave'
+gem 'mini_magick'
+
+# AUTHENTICATION
+#
+gem 'devise'
+
+# STYLESHEETS
+#
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
+gem 'animate-rails'
+
+# JAVASCRIPT
+#
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-gem 'faker'
-gem 'carrierwave'
-gem 'mini_magick'
-# Both To generate pdfs
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -35,18 +44,22 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# PDF
+#
+# wkhtmltopdf wrapper, transform html into pdf. Used for generating reports.
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'factory_girl_rails'
+  # Generate Fake Data
+  gem 'faker'
+  # Ability to set breakpoints in the code and jump in via the console.
+  gem 'pry'
+  # Prints stuff in the console with colors and indentation for readability.
+  gem 'awesome_print'
 end
 
 group :development do
@@ -62,6 +75,18 @@ group :development do
   gem 'sqlite3'
 end
 
+# CODING STYLE
+#
+gem 'rubocop'
+gem 'rails_best_practices'
+
+
+# TESTING
+#
+group :test do
+  # Allows to generate a number of different reports after the test has been completed.
+  gem 'minitest-reporters'
+end
 # For Heroku
 group :production do
   gem 'pg'

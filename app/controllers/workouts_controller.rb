@@ -69,7 +69,7 @@ class WorkoutsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render json: {'labels' => @history_x, 'values' => @history_y} }
+      format.json { render json: { 'labels' => @history_x, 'values' => @history_y} }
     end
   end
 
